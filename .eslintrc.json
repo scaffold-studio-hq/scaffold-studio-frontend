@@ -1,0 +1,27 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "prettier",
+    "plugin:tailwindcss/recommended"
+  ],
+  "plugins": ["tailwindcss"],
+  "rules": {
+    // Custom design-system tokens (e.g. bg-sidebar, text-muted-foreground) are defined in tailwind.config.ts
+    "tailwindcss/no-custom-classname": "off",
+    // Class ordering is handled by Biome formatting rather than blocking next build
+    "tailwindcss/classnames-order": "off",
+    // Workspace link:jsr:@creit-tech/stellar-wallets-kit is resolved by bundler at build time
+    "import/no-unresolved": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.json"
+      }
+    }
+  },
+  "ignorePatterns": ["**/components/ui/**"]
+}
